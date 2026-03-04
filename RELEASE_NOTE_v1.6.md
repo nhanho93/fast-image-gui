@@ -8,7 +8,11 @@
 
 ## 🎉 Điểm nổi bật của phiên bản này
 
-### 🌐 Favicon SEO Pack (Tính năng mới)
+### �️ Đổi tên & Nhận diện Thương hiệu Mới
+- Ứng dụng chính thức đổi tên từ **Fast Rename** thành **Fast Image** để phản ánh đúng định hướng (không chỉ đổi tên file mà còn xử lý, tối ưu hóa toàn diện vòng đời hình ảnh).
+- Bổ sung Logo chính thức của ứng dụng trực tiếp lên thanh Header của giao diện.
+
+### �🌐 Favicon SEO Pack (Tính năng mới)
 - Tích hợp công cụ tự động tạo bộ cấu trúc thư mục Favicon chuẩn SEO từ hình ảnh logo gốc.
 - Tự động xuất ra một thư mục `[tên-logo]-favicon/` chứa đầy đủ các kích thước chuẩn (ICO, PNG 16x16, 32x32, 192x192, 512x512) và file `site.webmanifest` để dễ dàng khai báo website.
 
@@ -28,6 +32,7 @@
 
 - Sửa lỗi UI nghiêm trọng khiến Tooltip (`data-info`) bị tràn mép màn hình khi hover gần rìa, được fix bằng hệ thống đo padding JavaScript theo thời gian thực (bounding rect).
 - Sửa lỗi nội dung phần Modal Changelog bị tràn dài và mất chữ (overflow) do flex container không cho phép cuộn nội dung con.
+- Sửa lỗi ứng dụng Crash/Trắng màn hình (`require is not defined`) do cơ chế bảo mật ContextIsolation bật lên khi người dùng bấm vào dòng link "Xem changelog đầy đủ trên GitHub".
 
 ---
 
