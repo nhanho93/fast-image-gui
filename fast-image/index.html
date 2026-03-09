@@ -405,9 +405,9 @@
                                 data-info-vi="Danh sách tập tin hiện tại và tên dự kiến sau khi thay đổi."
                                 data-info-en="Current file list and expected names after transformation."
                                 data-info="Danh sách tập tin hiện tại và tên dự kiến sau khi thay đổi.">i</span>
+                            <span id="file-count" class="badge">0 Tập Tin</span>
                         </div>
                         <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-                            <span id="file-count" class="badge">0 Tập Tin</span>
                             <div style="display:flex;align-items:center;gap:8px;"
                                 title="Giữ file gốc, tạo file mới với tên có hậu tố">
                                 <span class="keep-toggle-label" data-i18n="keepSource"
@@ -481,7 +481,7 @@
         </div>
 
         <!-- Version Badge -->
-        <div class="version-badge">v1.6.0</div>
+        <div class="version-badge">v1.6.1</div>
 
         <!-- Changelog Modal -->
         <div id="changelog-overlay" class="modal-overlay hidden">
@@ -498,6 +498,25 @@
                     <details class="changelog-version" open>
                         <summary class="changelog-version-header">
                             <span class="changelog-tag new">LATEST</span>
+                            <span class="changelog-version-num">v1.6.1</span>
+                            <span class="changelog-date">2026-03-09</span>
+                        </summary>
+                        <ul class="changelog-list">
+                            <li class="feat" data-i18n="cl161_1">✨ Sidebar: Tinh chỉnh thẩm mỹ Glassmorphism & Brighter
+                                background</li>
+                            <li class=" feat" data-i18n="cl161_2">✨ Layout: Tối ưu khoảng cách sub-tab và nội dung
+                                (.tab-content)</li>
+                            <li class="impr" data-i18n="cl161_3">🔧 Header: Bố cục thông minh (Badge cạnh Title, Toggle
+                                tự wrap)</li>
+                            <li class="impr" data-i18n="cl161_4">🔧 Window: Tối ưu logic tự nhận diện độ phân giải &
+                                resize</li>
+                            <li class="fix" data-i18n="cl161_5">🐛 Fix: Xử lý triệt đối lỗi overflow sidebar trên màn
+                                hình hẹp</li>
+                        </ul>
+                    </details>
+                    <details class="changelog-version">
+                        <summary class="changelog-version-header">
+                            <span class="changelog-tag">v1.6.0</span>
                             <span class="changelog-version-num">v1.6.0</span>
                             <span class="changelog-date">2026-03-04</span>
                         </summary>

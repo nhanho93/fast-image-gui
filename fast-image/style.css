@@ -61,8 +61,8 @@ label {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: clamp(15px, 3vh, 35px) clamp(20px, 4vw, 50px);
-    gap: 30px;
+    padding: clamp(10px, 2vh, 25px) clamp(15px, 3vw, 35px);
+    gap: clamp(15px, 2vh, 30px);
     background: radial-gradient(circle at 15% 85%, rgba(255, 157, 0, 0.04), transparent 45%);
 }
 
@@ -382,6 +382,42 @@ main {
     overflow: hidden;
 }
 
+
+.checkbox-grid {
+    gap: 8px;
+}
+
+.checkbox-item {
+    font-size: 0.65rem;
+}
+
+@media (max-width: 850px) {
+    .preview-header {
+        padding: 8px 10px;
+        gap: 6px;
+        justify-content: flex-start;
+    }
+
+    .preview-header>div:last-child {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .badge {
+        font-size: 0.58rem;
+        padding: 2px 8px;
+    }
+
+    .keep-toggle-label {
+        font-size: 10px !important;
+    }
+
+    .switch {
+        transform: scale(0.85);
+        transform-origin: right;
+    }
+}
+
 .right-column {
     display: flex;
     flex-direction: column;
@@ -491,11 +527,13 @@ select:focus {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+    appearance: none;
     margin: 0;
 }
 
 input[type=number] {
     -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .folder-selector {
@@ -560,7 +598,7 @@ body.light-theme .secondary-btn:hover {
     gap: 10px;
     margin-top: 15px;
     padding: 6px;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.06);
     border-radius: 12px;
     border: 1px solid var(--border);
 }
@@ -1400,4 +1438,213 @@ body.light-theme .apply-btn {
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(var(--accent-rgb), 0.4);
+}
+
+/* Table Responsive Tweaks */
+@media (max-width: 1000px) {
+    th {
+        letter-spacing: 0.5px;
+        padding: 6px 10px;
+        font-size: 0.65rem;
+    }
+
+    td {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
+
+    th[width="50"],
+    td:first-child {
+        width: 32px !important;
+        min-width: 32px;
+    }
+
+    th[width="40"],
+    td:last-child {
+        width: 28px !important;
+        min-width: 28px;
+    }
+}
+
+@media (max-width: 850px) {
+    .preview-header {
+        padding: 8px 12px;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .preview-header .label-with-info {
+        flex: 1;
+        min-width: fit-content;
+        gap: 12px !important;
+        /* Space for Badge next to Title */
+    }
+
+    .preview-header>div:last-child {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 4px;
+    }
+
+    .badge {
+        font-size: 0.58rem;
+        padding: 2px 8px;
+    }
+
+    .keep-toggle-label {
+        font-size: 10px !important;
+    }
+
+    .switch {
+        transform: scale(0.75);
+        transform-origin: right;
+    }
+}
+
+/* Layout Media Queries (Reorganized for Priority) */
+@media (max-width: 1100px) {
+    main {
+        grid-template-columns: 280px 1fr;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: 255px 1fr;
+        gap: 8px;
+    }
+
+    .brand h1 {
+        font-size: 1.3rem;
+        letter-spacing: -0.8px;
+    }
+
+    .brand p {
+        font-size: 0.55rem;
+    }
+
+    .glass-panel {
+        padding: 12px 10px !important;
+    }
+
+    .sidebar {
+        gap: 10px;
+    }
+
+    .sidebar-tabs {
+        gap: 3px;
+        padding: 3px;
+    }
+
+    /* Sub-tabs spacing (Resize/Crop/Convert) */
+    .tab-content .sidebar-tabs {
+        margin-top: 8px !important;
+        margin-bottom: 8px;
+    }
+
+    .tab-btn {
+        padding: 5px 2px;
+        font-size: 0.72rem;
+        letter-spacing: -0.2px;
+    }
+
+    .checkbox-item {
+        font-size: 0.68rem;
+        gap: 4px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        padding: 6px;
+        font-size: 0.72rem;
+    }
+
+    .tab-content {
+        gap: 11px;
+    }
+
+    .secondary-btn,
+    #select-folder-btn {
+        min-height: 32px;
+        font-size: 0.72rem;
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 800px) {
+    main {
+        grid-template-columns: 245px 1fr;
+        gap: 6px;
+    }
+
+    .glass-container {
+        padding: 10px 12px;
+    }
+
+    .brand h1 {
+        font-size: 1.25rem;
+    }
+
+    .glass-panel {
+        padding: 10px 8px !important;
+    }
+
+    .sidebar-tabs {
+        gap: 2px;
+        padding: 3px;
+    }
+
+    .tab-content .sidebar-tabs {
+        margin-top: 6px !important;
+        margin-bottom: 6px;
+    }
+
+    .tab-btn {
+        padding: 5px 1px;
+        font-size: 0.68rem;
+        letter-spacing: -0.4px;
+    }
+
+    .label-with-info label,
+    .label-with-info h3,
+    .label-with-info h2 {
+        font-size: 0.58rem;
+        letter-spacing: 0.1px;
+    }
+}
+
+@media (max-width: 700px) {
+    main {
+        grid-template-columns: 235px 1fr;
+        gap: 4px;
+    }
+
+    .glass-panel {
+        padding: 8px 6px !important;
+    }
+
+    .tab-btn {
+        font-size: 0.65rem;
+        padding: 4px 0;
+        letter-spacing: -0.5px;
+    }
+
+    th {
+        letter-spacing: 0;
+        padding: 4px;
+        font-size: 0.55rem;
+    }
+
+    td {
+        padding: 4px;
+        font-size: 0.65rem;
+    }
+
+    .apply-btn {
+        padding: 5px 15px;
+        font-size: 0.7rem;
+    }
 }

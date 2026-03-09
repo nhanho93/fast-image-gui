@@ -1,11 +1,41 @@
-const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, shell, screen } = require('electron');
 const path = require('path');
 const fs = require('fs-extra');
 
 function createWindow() {
+    // Get screen dimensions to auto-resize
+    const primaryDisplay = screen.getPrimaryDisplay();
+    const { width: scrW, height: scrH } = primaryDisplay.workAreaSize;
+
+    // Default design target
+    let targetWidth = 1050;
+    let targetHeight = 800;
+
+    if (scrW <= 1280) {
+        // Smaller screens (1024x768, 1280x720)
+        targetWidth = Math.floor(scrW * 0.96);
+        targetHeight = Math.floor(scrH * 0.92);
+    } else if (scrW <= 1440) {
+        // Medium (1366x768, 1440x900)
+        targetWidth = 1150;
+        targetHeight = 820;
+    } else if (scrW <= 1600) {
+        // Medium-Large (1600x900)
+        targetWidth = 1300;
+        targetHeight = 860;
+    } else {
+        // Large screens (1920x1080+, 2K, 4K)
+        targetWidth = 1440;
+        targetHeight = 920;
+    }
+
+    // Final safety constraints
+    const winWidth = Math.min(targetWidth, scrW);
+    const winHeight = Math.min(targetHeight, scrH);
+
     const win = new BrowserWindow({
-        width: 1050,
-        height: 800,
+        width: winWidth,
+        height: winHeight,
         minWidth: 700,
         minHeight: 500,
         icon: path.join(__dirname, 'logo-app.png'),

@@ -1,7 +1,22 @@
-# Changelog — Fast Image Siêu Cấp VIP PRO
+## [1.6.1] — 2026-03-09
 
-All notable changes to this project are documented in this file.
-Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+### ✨ New Features
+
+#### 🖥️ Auto-Resolution Window Resizing
+- Implemented dynamic window sizing in the Electron main process. The app now detects the screen resolution (1024x768 to 1920x1080+) and scales its window size automatically for the best fit.
+- Targeted optimizations for common resolutions like 1366x768 and 1600x900.
+
+### 🔧 Improvements
+
+#### UX & Interface
+- **Refined Sidebar Aesthetics** — Updated tab backgrounds to a brighter "glass" effect (`rgba(255, 255, 255, 0.06)`) for better visibility on dark backgrounds.
+- **Smart Preview Header** — Horizontally aligned the File Count badge with the Title. The "Keep File Source" toggle now automatically wraps to a second row (right-aligned) on medium/small screens.
+- **Tab Content Density** — Reduced vertical gaps in the control panels from 25px to 11px for viewports $\le$ 900px to keep controls compact.
+- **Sub-Tab Vertical Spacing** — Added specific top margins to nested tab groups (Resize/Crop/Convert) on medium screens to prevent vertical crowding.
+
+### 🐛 Bug Fixes
+- **Sidebar Overflow Absolute Fix** — Implemented aggressive horizontal padding and gap reduction for sidebar elements on medium screens (900px down to 700px), ensuring the "Favicon" tab and other labels never clip.
+- **Header Stacking Fix** — Enforced a persistent two-column layout for the application header across all screen sizes, preventing the logo and controls from stacking vertically.
 
 ---
 

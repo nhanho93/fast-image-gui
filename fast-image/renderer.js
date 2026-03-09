@@ -83,6 +83,11 @@ const LANG = {
         errorToast: (n) => `Hoàn tất với ${n} lỗi.`,
         // Changelog
         changelogTitle: 'Nhật ký thay đổi',
+        cl161_1: '✨ Sidebar: Tinh chỉnh thẩm mỹ Glassmorphism & Brighter background',
+        cl161_2: '✨ Layout: Tối ưu khoảng cách sub-tab và nội dung (.tab-content)',
+        cl161_3: '🔧 Header: Bố cục thông minh (Badge cạnh Title, Toggle tự wrap)',
+        cl161_4: '🔧 Window: Tối ưu logic tự nhận diện độ phân giải & resize',
+        cl161_5: '🐛 Fix: Xử lý triệt đối lỗi overflow sidebar trên màn hình hẹp',
         cl16_1: '🌐 Favicon SEO Pack: Tự tạo cấu trúc & icon tự động',
         cl16_2: '🌍 Giao diện song ngữ: Hỗ trợ đầy đủ Anh / Việt',
         cl16_3: '✨ Chuẩn font chữ: Be Vietnam Pro sửa lỗi dấu Tiếng Việt',
@@ -203,6 +208,11 @@ const LANG = {
         errorToast: (n) => `Operation completed with ${n} errors.`,
         // Changelog
         changelogTitle: 'Changelog',
+        cl161_1: '✨ Sidebar: Refined Glassmorphism aesthetics & brighter background',
+        cl161_2: '✨ Layout: Optimized sub-tab spacing and tab-content density',
+        cl161_3: '🔧 Header: Smart layout (Badge next to Title, Auto-wrapping Toggle)',
+        cl161_4: '🔧 Window: Targeted auto-resizing for various resolutions (inc. 1600x900)',
+        cl161_5: '🐛 Fix: Eliminated sidebar overflow on medium/narrow viewports',
         cl16_1: '🌐 Favicon SEO Pack: Auto-generate structure & icons',
         cl16_2: '🌍 Bilingual UI: Full EN/VI translations',
         cl16_3: '✨ Font support: Be Vietnam Pro for correct diacritics',
