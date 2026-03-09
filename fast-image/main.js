@@ -32,6 +32,18 @@ function createWindow() {
     console.log(`[Screen info] ${logicalW}x${logicalH} (Ratio: ${ratioType} [${ratio}])`);
     console.log(`[Auto Resize] Target 70% -> ${winWidth}x${winHeight}`);
 
+    // Diagnostic Logging for Packaging Issues
+    const indexP = path.join(__dirname, 'index.html');
+    console.log(`[Diagnostic] __dirname: ${__dirname}`);
+    console.log(`[Diagnostic] App Path: ${app.getAppPath()}`);
+    console.log(`[Diagnostic] index.html Path: ${indexP}`);
+
+    fs.pathExists(indexP).then(exists => {
+        if (!exists) {
+            dialog.showErrorBox("Missing Asset", `Cannot find index.html at:\n${indexP}`);
+        }
+    });
+
     const win = new BrowserWindow({
         width: winWidth,
         height: winHeight,
@@ -48,8 +60,36 @@ function createWindow() {
         title: "Fast Image Siêu Cấp VIP PRO"
     });
 
+    // Handle load failures
+    win.webContents.on('did-fail-load', (event, errorCode, errorDescription, validatedURL) => {
+        console.error(`[Load Error] Code: ${errorCode}, Desc: ${errorDescription}, URL: ${validatedURL}`);
+        dialog.showErrorBox("Load Failure",
+            `Failed to load the application UI.\n\nError: ${errorDescription} (${errorCode})\nURL: ${validatedURL}`
+        );
+    });
+
+    // Production DevTools shortcut (Ctrl+Shift+I)
+    win.webContents.on('before-input-event', (event, input) => {
+        if (input.control && input.shift && input.key.toLowerCase() === 'i') {
+            win.webContents.openDevTools();
+            event.preventDefault();
+        }
+    });
+
     win.loadFile('index.html');
+
+    // Monitor for renderer crashes
+    win.webContents.on('render-process-gone', (event, details) => {
+        console.error(`[Crash] Render process gone: ${details.reason}`, details);
+        dialog.showErrorBox("Process Crash", `The UI process has crashed.\nReason: ${details.reason}`);
+    });
 }
+
+// Global Exception Handler
+process.on('uncaughtException', (error) => {
+    console.error('[Uncaught Exception]', error);
+    dialog.showErrorBox("System Error", `An unexpected error occurred in the main process:\n${error.message}`);
+});
 
 app.whenReady().then(createWindow);
 
