@@ -12,19 +12,25 @@ function createWindow() {
     const realW = logicalW * scaleFactor;
     const realH = logicalH * scaleFactor;
 
-    // Target: 60% width and 75% height of REAL resolution
-    // Formula: (Logical * Scale * Factor) / Scale = Logical * Factor
-    const targetLogicalWidth = Math.floor(logicalW * 0.6);
-    const targetLogicalHeight = Math.floor(logicalH * 0.75);
+    // Target: 70% of logic surface area
+    const targetLogicalWidth = Math.floor(logicalW * 0.7);
+    const targetLogicalHeight = Math.floor(logicalH * 0.7);
 
-    // Final safety constraints (don't exceed logical work area, but keep formula as base)
+    // Aspect Ratio Calculation
+    const ratio = (logicalW / logicalH).toFixed(2);
+    let ratioType = 'Custom';
+    if (ratio === '1.78' || ratio === '1.77') ratioType = '16:9';
+    if (ratio === '1.60') ratioType = '16:10';
+    if (ratio === '1.33') ratioType = '4:3';
+    if (ratio === '1.25') ratioType = '5:4';
+
+    // Final safety constraints (don't exceed logical work area)
     const { width: workW, height: workH } = primaryDisplay.workAreaSize;
     const winWidth = Math.min(targetLogicalWidth, workW);
     const winHeight = Math.min(targetLogicalHeight, workH);
 
-    console.log(`[Resolution check] Logical: ${logicalW}x${logicalH}, Scale: ${scaleFactor}, Real: ${realW}x${realH}`);
-    console.log(`[Calculation] 60% Width: ${targetLogicalWidth}, 75% Height: ${targetLogicalHeight}`);
-    console.log(`[Final Window] ${winWidth}x${winHeight}`);
+    console.log(`[Screen info] ${logicalW}x${logicalH} (Ratio: ${ratioType} [${ratio}])`);
+    console.log(`[Auto Resize] Target 70% -> ${winWidth}x${winHeight}`);
 
     const win = new BrowserWindow({
         width: winWidth,
