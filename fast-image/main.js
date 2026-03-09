@@ -5,33 +5,26 @@ const fs = require('fs-extra');
 function createWindow() {
     // Get screen dimensions to auto-resize
     const primaryDisplay = screen.getPrimaryDisplay();
-    const { width: scrW, height: scrH } = primaryDisplay.workAreaSize;
+    const { width: logicalW, height: logicalH } = primaryDisplay.size;
+    const scaleFactor = primaryDisplay.scaleFactor;
 
-    // Default design target
-    let targetWidth = 1050;
-    let targetHeight = 800;
+    // Calculate real resolution (physical pixels)
+    const realW = logicalW * scaleFactor;
+    const realH = logicalH * scaleFactor;
 
-    if (scrW <= 1280) {
-        // Smaller screens (1024x768, 1280x720)
-        targetWidth = Math.floor(scrW * 0.96);
-        targetHeight = Math.floor(scrH * 0.92);
-    } else if (scrW <= 1440) {
-        // Medium (1366x768, 1440x900)
-        targetWidth = 1150;
-        targetHeight = 820;
-    } else if (scrW <= 1600) {
-        // Medium-Large (1600x900)
-        targetWidth = 1300;
-        targetHeight = 860;
-    } else {
-        // Large screens (1920x1080+, 2K, 4K)
-        targetWidth = 1440;
-        targetHeight = 920;
-    }
+    // Target: 60% width and 75% height of REAL resolution
+    // Formula: (Logical * Scale * Factor) / Scale = Logical * Factor
+    const targetLogicalWidth = Math.floor(logicalW * 0.6);
+    const targetLogicalHeight = Math.floor(logicalH * 0.75);
 
-    // Final safety constraints
-    const winWidth = Math.min(targetWidth, scrW);
-    const winHeight = Math.min(targetHeight, scrH);
+    // Final safety constraints (don't exceed logical work area, but keep formula as base)
+    const { width: workW, height: workH } = primaryDisplay.workAreaSize;
+    const winWidth = Math.min(targetLogicalWidth, workW);
+    const winHeight = Math.min(targetLogicalHeight, workH);
+
+    console.log(`[Resolution check] Logical: ${logicalW}x${logicalH}, Scale: ${scaleFactor}, Real: ${realW}x${realH}`);
+    console.log(`[Calculation] 60% Width: ${targetLogicalWidth}, 75% Height: ${targetLogicalHeight}`);
+    console.log(`[Final Window] ${winWidth}x${winHeight}`);
 
     const win = new BrowserWindow({
         width: winWidth,
