@@ -16,7 +16,7 @@
 - Làm mới hệ thống Tab với nền sáng hơn (`rgba(255, 255, 255, 0.06)`), tạo hiệu ứng "mờ kính" hiện đại và dễ nhìn hơn trên nền tối.
 
 ### 🔧 Bố cục thông minh cho màn hình trung bình & nhỏ
-- **Smart Header:** Huy hiệu số lượng file hiện đã nằm ngang hàng với tiêu đề. Nút gạt "Giữ file gốc" tự động xuống hàng và dạt về bên phải khi không gian bị thu hẹp, giúp giao diện cân đối.
+- **Smart Header:** Huy hiệu số lượng file và nút gạt "Giữ file gốc" hiện đã nằm ngang hàng với tiêu đề với độ căn chỉnh dọc (vertical centering) hoàn hảo, giúp tiết kiệm tối đa diện tích.
 - **Compact Layout:** Thu hẹp khoảng cách các thành phần trong tab (25px → 11px) trên màn hình nhỏ, giúp bạn thao tác nhanh mà không cần cuộn chuột nhiều.
 - **Sub-Tab Spacing:** Nới rộng khoảng cách giữa cụm tab mẹ và tab con để tránh cảm giác bị dồn nén.
 

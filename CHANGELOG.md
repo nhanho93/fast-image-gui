@@ -10,7 +10,7 @@
 
 #### UX & Interface
 - **Refined Sidebar Aesthetics** — Updated tab backgrounds to a brighter "glass" effect (`rgba(255, 255, 255, 0.06)`) for better visibility on dark backgrounds.
-- **Smart Preview Header** — Horizontally aligned the File Count badge with the Title. The "Keep File Source" toggle now automatically wraps to a second row (right-aligned) on medium/small screens.
+- **Smart Preview Header** — Horizontally aligned the File Count badge with the Title. The "Keep File Source" toggle now stays on the same line with perfect vertical centering and refined padding.
 - **Tab Content Density** — Reduced vertical gaps in the control panels from 25px to 11px for viewports $\le$ 900px to keep controls compact.
 - **Sub-Tab Vertical Spacing** — Added specific top margins to nested tab groups (Resize/Crop/Convert) on medium screens to prevent vertical crowding.
 

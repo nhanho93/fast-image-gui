@@ -1468,24 +1468,27 @@ body.light-theme .apply-btn {
 
 @media (max-width: 850px) {
     .preview-header {
-        padding: 8px 12px;
-        gap: 8px;
-        flex-wrap: wrap;
+        padding: 10px 14px;
+        gap: 12px;
+        flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
     }
 
     .preview-header .label-with-info {
-        flex: 1;
-        min-width: fit-content;
-        gap: 12px !important;
-        /* Space for Badge next to Title */
+        flex: 0 1 auto;
+        min-width: 0;
+        gap: 8px !important;
+        margin-bottom: 0 !important;
     }
 
     .preview-header>div:last-child {
-        width: 100%;
+        width: auto;
         justify-content: flex-end;
-        margin-top: 4px;
+        margin-top: 0;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
     }
 
     .badge {
